@@ -69,6 +69,9 @@ htop                     # Interactive process viewer
 lscpu                    # CPU info
 lsblk                    # Block devices (disks/partitions)
 dmesg | less             # Kernel ring buffer messages
+iostat                      # CPU and I/O stats
+vmstat                      # Virtual memory stats
+sar                         # System activity report
 
 # ================= NETWORKING =================
 ip a                     # Show IP addresses
@@ -117,3 +120,46 @@ mkfs.ext4 /dev/sdX       # Format partition ext4
 /proc                    # Process info
 /dev                     # Device files
 /mnt or /media           # Mount points
+
+# ================= PERMISSIONS & OWNERSHIP =================
+chmod 755 file.txt    # Change permissions
+chown user file.txt   # Change owner
+chgrp group file.txt  # Change group ownership
+
+# ================= ARCHIVE & COMPRESSION =================
+tar -cvf file.tar dir       # Create tar archive
+tar -xvf file.tar           # Extract tar archive
+gzip file.txt               # Compress file
+gunzip file.txt.gz          # Decompress file
+zip file.zip file1 file2    # Create zip archive
+unzip file.zip              # Extract zip archive
+
+# ================= PACKAGE MANAGEMENT =================
+# Debian/Ubuntu
+apt update && apt upgrade   # Update system
+apt install package         # Install package
+apt remove package          # Remove package
+
+# RHEL/CentOS/Fedora
+yum install package         # Install package
+dnf install package         # Install package (newer systems)
+
+# ================= SERVICE MANAGEMENT =================
+systemctl status service    # Check service status
+systemctl start service     # Start service
+systemctl stop service      # Stop service
+systemctl restart service   # Restart service
+systemctl enable service    # Enable service at boot
+systemctl disable service   # Disable service at boot
+
+# ================= SCHEDULING TASKS =================
+crontab -e                  # Edit cron jobs
+crontab -l                  # List cron jobs
+at 14:00                    # Schedule a command at a time
+
+# ================= SELINUX / FIREWALL BASICS =================
+getenforce                  # Check SELinux mode
+setenforce 0                # Set SELinux to permissive
+setenforce 1                # Set SELinux to enforcing
+firewall-cmd --state        # Check firewall status
+firewall-cmd --list-all     # List firewall rules
