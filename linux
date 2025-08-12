@@ -1,81 +1,116 @@
-# Linux Command Cheat Sheet – Complete
+# ================= FILE & DIRECTORY NAVIGATION =================
+pwd                      # Show current directory
+ls                       # List files
+ls -l                    # Long listing
+ls -a                    # Show hidden files
+cd dir                   # Change directory
+cd ..                    # Move up one level
+cd ~                     # Go to home directory
+find /path -name file    # Search for a file by name
+locate filename          # Quickly find file (requires updatedb)
 
-| *Category* | *Command / Path* | *Description* |
-|--------------|--------------------|-----------------|
-| *File & Directory Navigation* | pwd | Show current directory path |
-|  | ls | List files |
-|  | ls -l | Detailed list |
-|  | ls -a | Include hidden files |
-|  | cd /path/to/dir | Change directory |
-|  | cd .. | Go up one level |
-|  | cd ~ | Home directory |
-| *File & Directory Operations* | touch file.txt | Create empty file |
-|  | mkdir mydir | Create directory |
-|  | mkdir -p parent/child | Create nested directories |
-|  | cp file1 file2 | Copy file |
-|  | cp -r dir1 dir2 | Copy directory |
-|  | mv old new | Rename/move |
-|  | rm file.txt | Delete file |
-|  | rm -r dir | Delete directory |
-|  | rm -rf dir | Force delete directory |
-| *Viewing & Editing Files* | cat file.txt | View file content |
-|  | less file.txt | Scroll through file |
-|  | head file.txt | First 10 lines |
-|  | tail file.txt | Last 10 lines |
-|  | tail -f /var/log/syslog | Live log view |
-|  | nano file.txt | Edit with nano |
-|  | vi file.txt | Edit with vim |
-| *Log Navigation* | cd /var/log | Go to logs directory |
-|  | ls /var/log | List logs |
-|  | tail -f /var/log/syslog | Live system log |
-|  | less /var/log/auth.log | Authentication logs |
-|  | grep "error" /var/log/syslog | Search errors in logs |
-|  | journalctl -xe | Systemd logs |
-|  | journalctl -u service_name | Logs for a service |
-| *User Management* | whoami | Current user |
-|  | id | Show UID, GID, groups |
-|  | cat /etc/passwd | All users |
-|  | adduser username | Add user |
-|  | useradd username | Alternative add |
-|  | passwd username | Set password |
-|  | usermod -aG group user | Add user to group |
-|  | deluser username | Delete user |
-|  | userdel username | Alternative delete |
-| *Group Management* | cat /etc/group | Show groups |
-|  | groupadd groupname | Create group |
-|  | groupdel groupname | Delete group |
-|  | gpasswd -d user group | Remove user from group |
-|  | groups username | Show user's groups |
-| *Permissions* | ls -l | View permissions |
-|  | chmod 755 file | Change permissions |
-|  | chown user:group file | Change ownership |
-| *System Info* | uname -a | Kernel/system info |
-|  | df -h | Disk usage |
-|  | du -sh folder | Folder size |
-|  | free -h | RAM usage |
-|  | top | Live processes |
-|  | htop | Advanced process view |
-|  | uptime | System uptime |
-| *Process Management* | ps aux | All processes |
-|  | kill PID | Kill process |
-|  | kill -9 PID | Force kill |
-|  | pkill name | Kill by name |
-| *Networking* | ifconfig | Show network interfaces |
-|  | ip a | Show IP addresses |
-|  | ping example.com | Test connectivity |
-|  | curl example.com | Fetch web page |
-|  | wget URL | Download file |
-|  | netstat -tulnp | Active ports/services |
-|  | ss -tulnp | Alternative to netstat |
-|  | scp file user@host:/dir | Secure copy to remote |
-|  | ssh user@host | Connect to remote server |
-| *Basic Linux Directories* | /bin | Essential system binaries (commands needed for boot) |
-|  | /sbin | System administration binaries |
-|  | /usr/bin | User application binaries |
-|  | /usr/sbin | Non-essential system binaries for admin |
-|  | /var | Variable data (logs, spool files, caches) |
-|  | /var/log | System and application logs |
-|  | /etc | Configuration files |
-|  | /home | User home directories |
-|  | /root | Root user’s home directory |
-|  | /tmp | Temporary files |
+# ================= FILE & DIRECTORY MANAGEMENT =================
+touch file.txt           # Create empty file
+mkdir mydir              # Create directory
+mkdir -p parent/child    # Create nested directories
+cp file1 file2           # Copy file
+cp -r dir1 dir2          # Copy directory
+mv old new               # Rename/move
+rm file.txt              # Delete file
+rm -r dir                # Delete directory
+rm -rf dir               # Force delete
+tree                     # View directory tree
+
+# ================= VIEWING & EDITING FILES =================
+cat file.txt             # View file content
+less file.txt            # View file with scroll
+head file.txt            # First 10 lines
+tail file.txt            # Last 10 lines
+tail -f file.txt         # Follow updates to file
+nano file.txt            # Edit with nano
+vim file.txt             # Edit with vim
+grep "text" file         # Search text inside file
+grep -r "text" dir       # Recursive search in directory
+
+# ================= LOG ANALYSIS & NAVIGATION =================
+cd /var/log              # Go to log directory
+ls /var/log              # List logs
+tail -f syslog           # Live system log
+tail -f messages         # General system messages
+journalctl               # View systemd logs
+journalctl -u service    # Logs for specific service
+grep "error" logfile     # Search for errors in logs
+less logfile             # Scroll through logs
+
+# ================= USER & GROUP MANAGEMENT =================
+whoami                   # Current user
+id                       # User ID & groups
+groups                   # Groups for current user
+cat /etc/passwd          # List all users
+cat /etc/group           # List all groups
+adduser user1            # Add new user
+usermod -aG group user1  # Add user to group
+deluser user1            # Delete user
+groupadd group1          # Create group
+groupdel group1          # Delete group
+passwd user1             # Change user password
+
+# ================= SYSTEM INFORMATION =================
+uname -a                 # Kernel & system info
+hostname                 # Show hostname
+uptime                   # System uptime
+df -h                    # Disk usage (human-readable)
+free -h                  # Memory usage
+top                      # View running processes
+htop                     # Interactive process viewer
+lscpu                    # CPU info
+lsblk                    # Block devices (disks/partitions)
+dmesg | less             # Kernel ring buffer messages
+
+# ================= NETWORKING =================
+ip a                     # Show IP addresses
+ifconfig                 # Show network interfaces (old)
+ping host                # Ping host
+curl url                 # Fetch URL data
+wget url                 # Download file from URL
+netstat -tulnp           # Listening ports & processes
+ss -tulnp                # Socket stats (newer)
+traceroute host          # Trace network path
+nslookup domain          # DNS lookup
+dig domain               # Detailed DNS info
+
+# ================= PROCESS MANAGEMENT =================
+ps aux                   # List processes
+ps -ef                   # List processes (alt format)
+kill PID                 # Kill process by PID
+kill -9 PID              # Force kill
+pkill name               # Kill by process name
+pgrep name               # Get PID by name
+jobs                     # List background jobs
+bg %1                    # Resume job in background
+fg %1                    # Bring job to foreground
+
+# ================= DISK MANAGEMENT =================
+df -h                    # Disk space usage
+du -sh dir               # Directory size
+mount /dev/sdX /mnt      # Mount disk
+umount /mnt              # Unmount disk
+lsblk                    # List block devices
+blkid                    # List block device UUIDs
+fdisk -l                 # Partition table
+mkfs.ext4 /dev/sdX       # Format partition ext4
+
+# ================= BASIC LINUX DIRECTORY STRUCTURE =================
+/                        # Root directory
+/bin                     # Essential binaries
+/sbin                    # System binaries
+/usr/bin                 # User binaries
+/usr/sbin                # Admin binaries
+/var                     # Variable files (logs, spool)
+/etc                     # Config files
+/home                    # User home directories
+/tmp                     # Temporary files
+/opt                     # Optional software
+/proc                    # Process info
+/dev                     # Device files
+/mnt or /media           # Mount points
