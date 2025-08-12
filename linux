@@ -1,0 +1,81 @@
+# Linux Command Cheat Sheet – Complete
+
+| *Category* | *Command / Path* | *Description* |
+|--------------|--------------------|-----------------|
+| *File & Directory Navigation* | pwd | Show current directory path |
+|  | ls | List files |
+|  | ls -l | Detailed list |
+|  | ls -a | Include hidden files |
+|  | cd /path/to/dir | Change directory |
+|  | cd .. | Go up one level |
+|  | cd ~ | Home directory |
+| *File & Directory Operations* | touch file.txt | Create empty file |
+|  | mkdir mydir | Create directory |
+|  | mkdir -p parent/child | Create nested directories |
+|  | cp file1 file2 | Copy file |
+|  | cp -r dir1 dir2 | Copy directory |
+|  | mv old new | Rename/move |
+|  | rm file.txt | Delete file |
+|  | rm -r dir | Delete directory |
+|  | rm -rf dir | Force delete directory |
+| *Viewing & Editing Files* | cat file.txt | View file content |
+|  | less file.txt | Scroll through file |
+|  | head file.txt | First 10 lines |
+|  | tail file.txt | Last 10 lines |
+|  | tail -f /var/log/syslog | Live log view |
+|  | nano file.txt | Edit with nano |
+|  | vi file.txt | Edit with vim |
+| *Log Navigation* | cd /var/log | Go to logs directory |
+|  | ls /var/log | List logs |
+|  | tail -f /var/log/syslog | Live system log |
+|  | less /var/log/auth.log | Authentication logs |
+|  | grep "error" /var/log/syslog | Search errors in logs |
+|  | journalctl -xe | Systemd logs |
+|  | journalctl -u service_name | Logs for a service |
+| *User Management* | whoami | Current user |
+|  | id | Show UID, GID, groups |
+|  | cat /etc/passwd | All users |
+|  | adduser username | Add user |
+|  | useradd username | Alternative add |
+|  | passwd username | Set password |
+|  | usermod -aG group user | Add user to group |
+|  | deluser username | Delete user |
+|  | userdel username | Alternative delete |
+| *Group Management* | cat /etc/group | Show groups |
+|  | groupadd groupname | Create group |
+|  | groupdel groupname | Delete group |
+|  | gpasswd -d user group | Remove user from group |
+|  | groups username | Show user's groups |
+| *Permissions* | ls -l | View permissions |
+|  | chmod 755 file | Change permissions |
+|  | chown user:group file | Change ownership |
+| *System Info* | uname -a | Kernel/system info |
+|  | df -h | Disk usage |
+|  | du -sh folder | Folder size |
+|  | free -h | RAM usage |
+|  | top | Live processes |
+|  | htop | Advanced process view |
+|  | uptime | System uptime |
+| *Process Management* | ps aux | All processes |
+|  | kill PID | Kill process |
+|  | kill -9 PID | Force kill |
+|  | pkill name | Kill by name |
+| *Networking* | ifconfig | Show network interfaces |
+|  | ip a | Show IP addresses |
+|  | ping example.com | Test connectivity |
+|  | curl example.com | Fetch web page |
+|  | wget URL | Download file |
+|  | netstat -tulnp | Active ports/services |
+|  | ss -tulnp | Alternative to netstat |
+|  | scp file user@host:/dir | Secure copy to remote |
+|  | ssh user@host | Connect to remote server |
+| *Basic Linux Directories* | /bin | Essential system binaries (commands needed for boot) |
+|  | /sbin | System administration binaries |
+|  | /usr/bin | User application binaries |
+|  | /usr/sbin | Non-essential system binaries for admin |
+|  | /var | Variable data (logs, spool files, caches) |
+|  | /var/log | System and application logs |
+|  | /etc | Configuration files |
+|  | /home | User home directories |
+|  | /root | Root user’s home directory |
+|  | /tmp | Temporary files |
