@@ -54,6 +54,9 @@ deluser user1            # Delete user
 groupadd group1          # Create group
 groupdel group1          # Delete group
 passwd user1             # Change user password
+cat /etc/passwd            # List all users
+cat /etc/group             # List all groups
+gpasswd -d user1 group     # Remove user from group
 
 # ================= SYSTEM INFORMATION =================
 uname -a                 # Kernel & system info
