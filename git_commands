@@ -1,0 +1,78 @@
+🔹 Branching & Merging
+git branch                          --- List all local branches
+git branch -r                      --- List all remote branches
+git branch -a                      --- List all branches (local + remote)
+git branch <branch_name>          --- Create a new branch
+git branch -d <branch_name>       --- Delete branch locally (safe delete)
+git branch -D <branch_name>       --- Force delete branch locally
+git checkout <branch_name>        --- Switch to a branch
+git checkout -b <branch_name>     --- Create and switch to a new branch
+git merge <branch_name>           --- Merge given branch into current branch
+git rebase <branch_name>          --- Rebase current branch onto another
+
+🔹 Remote Repositories
+git remote -v                     --- Show remote URLs
+git remote add origin <url>       --- Add remote repository
+git remote remove origin          --- Remove remote repository
+git push -u origin <branch_name>  --- Push branch and set upstream
+git push origin --delete <branch> --- Delete remote branch
+git fetch                         --- Fetch latest changes from remote
+git pull                          --- Fetch and merge changes from remote
+git pull origin <branch>          --- Pull from specific branch
+git push                          --- Push local commits to remote
+git push origin <branch>          --- Push specific branch to remote
+
+🔹 Cloning & Initialization
+git init                          --- Initialize a new Git repository
+git clone <url>                   --- Clone repository from remote
+
+🔹 Staging & Committing
+git status                        --- Show status of working directory
+git add <file>                    --- Stage a file
+git add .                         --- Stage all files (current directory)
+git reset <file>                  --- Unstage a file
+git reset                         --- Unstage everything
+git commit -m "message"           --- Commit staged changes
+git commit -am "message"          --- Stage & commit tracked files
+
+🔹 Undoing Changes
+git checkout -- <file>           --- Discard local changes to a file
+git reset --hard                 --- Reset working directory to last commit
+git reset --hard HEAD            --- Discard all changes since last commit
+git revert <commit>              --- Create a new commit to undo a specific commit
+
+🔹 Logs & History
+git log                          --- Show commit logs
+git log --oneline                --- Condensed log output
+git log --graph                  --- Show commit graph
+git show <commit_hash>           --- Show details of a specific commit
+git diff                         --- Show unstaged changes
+git diff --staged                --- Show staged changes
+
+🔹 Tagging
+git tag                          --- List all tags
+git tag <tag_name>               --- Create a tag
+git tag -d <tag_name>            --- Delete a tag locally
+git push origin <tag_name>       --- Push a specific tag to remote
+git push origin --tags           --- Push all tags to remote
+
+🔹 Stashing
+git stash                        --- Stash current changes
+git stash list                   --- List all stashes
+git stash apply                  --- Apply latest stash
+git stash apply stash@{n}        --- Apply specific stash
+git stash pop                    --- Apply and remove latest stash
+git stash drop stash@{n}         --- Delete specific stash
+
+🔹 Configuration
+git config --global user.name "Your Name"        --- Set global username
+git config --global user.email "you@example.com" --- Set global email
+git config --list                                --- List Git config
+
+🔹 Restoring Changes (with git restore)
+git restore <file>                      --- Discard local changes in working directory (reverts to last commit)
+git restore --staged <file>            --- Unstage a file (moves it from staging back to working directory)
+git restore --source=HEAD~1 <file>     --- Restore file content from a specific commit (HEAD~1 here)
+git restore .                          --- Discard all changes in working directory (not staged)
+git restore --staged .                 --- Unstage all files
+git restore --worktree <file>          --- Restore file in working directory only
